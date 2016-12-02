@@ -218,10 +218,6 @@ killLastGridline = ->
     if line?
         line[0].hide()
     return
-# $$RG$$ added end
-
-getCustomers = ->
-    Promise.resolve(MP.api.propertyValues 'Create Account', 'Company')
 
 getOrgs = (from, to) ->
     script = "function main() {return join(People(),Events({from_date: params.from,to_date: params.to,event_selectors: [{event: 'To: App Load'}]})).filter(tuple => tuple.event && tuple.user).groupBy(['user.properties.salesforceOrgId'], state => 1).reduce(mixpanel.reducer.count())}"
