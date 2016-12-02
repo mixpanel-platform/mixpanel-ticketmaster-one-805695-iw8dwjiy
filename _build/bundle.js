@@ -761,7 +761,7 @@
 /* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Promise, addRiskRow, addRiskTableHeader, addUsageRow, addUsageTableHeader, animations, appPickerHandler, appTypePickerHandler, capitalizeString, clearUserTable, constants, datePickerHandler, drawAxisBackgrounds, getAppLoadTrends, getAppOrgs, getCustomers, getFromMoment, getNewOrgs, getOrgs, getResults, getRisk, getToMoment, getUsage, globals, hideAppLoadRate, hideLoadingScreen, initAppPicker, initAppTypePicker, initDatePicker, initLoadingScreen, killLastGridline, processAppLoadData, processNumericData, processRiskData, processUserData, setFromMoment, setReportTitle, setSelector, setToMoment, showAppLoadRate, showLoadingScreen, showLoadingSymbol, showProgress, showRiskTable, showUsageTable, sum, track, trackOnce;
+	var Promise, addRiskRow, addRiskTableHeader, addUsageRow, addUsageTableHeader, animations, appPickerHandler, appTypePickerHandler, capitalizeString, clearUserTable, constants, datePickerHandler, drawAxisBackgrounds, getAppLoadTrends, getAppOrgs, getFromMoment, getNewOrgs, getOrgs, getResults, getRisk, getToMoment, getUsage, globals, hideAppLoadRate, hideLoadingScreen, initAppPicker, initAppTypePicker, initDatePicker, initLoadingScreen, killLastGridline, processAppLoadData, processNumericData, processRiskData, processUserData, setFromMoment, setReportTitle, setSelector, setToMoment, showAppLoadRate, showLoadingScreen, showLoadingSymbol, showProgress, showRiskTable, showUsageTable, sum, track, trackOnce;
 
 	Promise = __webpack_require__(14).Promise;
 
@@ -1006,10 +1006,6 @@
 	  if (line != null) {
 	    line[0].hide();
 	  }
-	};
-
-	getCustomers = function() {
-	  return Promise.resolve(MP.api.propertyValues('Create Account', 'Company'));
 	};
 
 	getOrgs = function(from, to) {
@@ -1308,6 +1304,8 @@
 	initAppTypePicker();
 
 	appTypePickerHandler();
+
+	debugger;
 
 	getResults(globals.fromMoment, globals.toMoment);
 
