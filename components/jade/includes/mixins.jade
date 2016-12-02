@@ -1,0 +1,15 @@
+mixin meter(title, meterValue, longTitle)
+  - var meterId = title.toLowerCase().replace(/ /g, '-').replace(/[\(\)]/g, '');
+  - var meterValueId = meterId + '-meter-value';
+  - var meterProgressId = meterId + '-progress';
+  div.container-meter(id=meterId)
+    h2.meter-heading=title
+    div.meter-background
+      div.meter-value(id=meterValueId)= meterValue
+      svg.meter-svg(viewBox='0 0 32 32')
+        circle.meter-progress(id=meterProgressId, cx='16', cy='16', r='16')
+
+mixin chartHeader(title)
+  div.container-chart-header
+    div.chart-title-shadow
+    div.chart-title= title

@@ -1,0 +1,54 @@
+.mp-select
+  display: inline-block
+  width: $buttonWidth
+  height: $buttonHeight
+
+.mp-select.mixpanel-platform-select.event_selector_theme
+  display: inline-block
+  width: $buttonWidth
+
+  .select_button
+    border: 0
+    background-color: white // TODO: variable
+    background-image: none
+    // width: $buttonWidth
+    // height: $buttonHeight
+    text-align: left
+    height: $buttonHeight // TODO: why is this needed?
+    line-height: $buttonLineHeight
+    padding: $buttonPaddingTB $buttonPaddingLR
+    borderRadiusLarge()
+    shadowSmall()
+    &.active
+      .down_arrow_big
+        flipVertically()
+
+  .select_menu
+    width: $buttonWidth - 2px // Account to border
+    min-width: $buttonWidth - 2px // Account to border
+    text-align: left
+
+    .search_box_container
+      line-height: normal
+      .search_box
+        padding: 7px 6px // TODO: variable
+        background-image: none
+        openSans()
+
+    .options_list
+      .select_option
+        font-size: $mpDropdownItemTextSize
+        line-height: $mpDropdownItemLineHeight
+        openSansBold()
+
+  .down_arrow_big
+    background-image: url('../../images/disclosure-indicator')
+    background-size: $disclosureIndicatorWidth $disclosureIndicatorHeight
+    top: 16px // TODO: variable
+    right: 15px // TODO: variable
+    width: $disclosureIndicatorWidth
+    height: $disclosureIndicatorHeight
+
+  span
+    font-size: $buttonTextSize
+    openSansBold()

@@ -1,0 +1,645 @@
+@import '../_variables'
+@import '../_mixins'
+
+.clearfix:before
+.clearfix:after
+  content: " "
+  display: table
+
+.clearfix:after
+  clear: both
+
+.center-contents
+  text-align: center
+  white-space: nowrap
+
+.center-contents:before
+.center-contents-vertical:before
+  content: ''
+  display: inline-block
+  vertical-align: middle
+  height: 100%
+  margin-right: -0.25em
+.center-vertical
+  display: inline-block
+  vertical-align: middle
+
+.hidden
+  display: none
+
+.loading
+  position: relative
+  width: 100%
+  height: 100%
+
+/*
+  box-sizing: border-box
+*/
+
+.dashboard-body
+  padding: $bodyPadding
+  font-size: 16px
+  line-height: 1.0
+
+h1, h2, h3, h4, h5, h6
+  color: $textPrimaryColor
+  margin: 0px
+
+ul
+  margin: 0px
+  padding: 0px
+  list-style-type: none
+
+/* Classes */
+.pull-left
+  float left
+
+.pull-right
+  float: right
+
+.column
+  width: $columnWidth
+  padding: 0px $containerPadding 0px $containerPadding
+
+.column.pull-left
+  padding-right: $containerInnerPadding
+
+.column.pull-right
+  padding-left: $containerInnerPadding
+
+.column .container-section
+  margin: 0px 0px $containerMargin 0px
+
+.container-logo-title
+  position: relative
+  text-align: center
+  margin-bottom: $containerMargin
+
+.container-report
+  width: $containerReportWidth
+  max-width: $containerReportMaxWidth
+  min-width: $containerReportMinWidth
+  margin: auto
+  background-color: $containerReportBackgroundColor
+
+.container-section
+  background-color: $containerSectionBackgroundColor
+  padding: $containerPadding
+  margin: $containerMargin
+  borderRadiusLarge()
+
+.container-chart
+  background-color: $containerChartBackgroundColor
+  padding: 0 1px 1px 1px
+  borderRadiusSmall()
+
+.container-chart-header
+  background-color: inherit
+  position: relative
+  // $$RG$$ TODO: figure out if this is really needed
+  // z-index: 20
+
+.container-chart-title
+  background-color: inherit
+  position: relative
+  text-align: center
+  padding: $containerChartTitlePaddingTB 0
+  z-index: 4
+
+.container-chart-contents
+  position: relative
+  vertical-align: top
+  display: inline-block
+  background-color: white
+  width: 100%
+  z-index: 1
+  borderBottomRadiusSmall()
+
+.container-meter
+  display: inline-block
+
+.container-pie-chart
+.container-bar-chart
+.container-line-chart
+  background-color: $containerChartContentBackgroundColor
+  borderBottomRadiusSmall()
+
+.container-pie-chart
+  padding: $containerPieChartPadding
+
+.container-pie-chart-legend
+  margin-left: $containerPieChartLegendMarginLeft
+  vertical-align: middle
+  display: inline-block
+
+.container-bar-chart
+.container-line-chart
+  // prevent vertical margin collapsing
+  overflow: hidden
+  position: relative
+  height: $containerChartContentHeight
+
+.container-x-axis
+.container-y-axis
+  background-color: $axisColor
+  position: absolute
+  left: 0px
+  borderBottomRadiusSmall()
+
+.container-y-axis
+  text-align: center
+  width: $axisSize
+  height: 100%
+  top: 0px
+
+.container-x-axis
+  height: $axisSize
+  width: 100%
+  bottom: 0px
+
+.container-line-chart-points
+  position: absolute
+  left: $containerLineChartPointsPositionLeft
+  bottom: $containerLineChartPointsPositionBottom
+
+.container-bar
+  width: $containerBarWidth
+  display: inline-block
+  text-align: center
+
+.button
+  display: inline-block
+  padding: $buttonPaddingTB $buttonPaddingLR
+  borderRadiusLarge()
+  shadowSmall()
+
+.button.action
+  background-color: $buttonActionColor
+  color: $textButtonActionColor
+
+.button.enabled
+  background-color: $buttonEnabledColor
+  color: $textButtonEnabledColor
+
+.button.disabled
+  background-color: $buttonDisabledColor
+  color: $textButtonDisabledColor
+
+.button-content
+  display: inline-block
+
+.button-text
+  font-size: $buttonTextSize
+
+.disclosure-indicator
+  vertical-align: middle
+  width: $disclosureIndicatorWidth
+  height: $disclosureIndicatorHeight
+
+.meter-heading, .meter-long-heading
+  width: 150px // TODO: variable
+  font-size: $meterHeadingTextSize
+  margin-bottom: $containerMargin
+  line-height: $meterHeadingLineHeight
+  text-align: center
+  openSansBold()
+
+.meter-heading
+  margin-top: 10px // TODO: variable
+  margin-bottom: 20px
+
+.meter-long-heading
+  margin-top: 0
+  margin-bottom: 10px
+
+.meter-background
+  position: relative
+  background-color: $meterColor
+  width: $meterSize
+  height: $meterSize
+  circle()
+  shadowSmall()
+
+.meter-value
+  background: white
+  position: relative
+  display: inline-block
+  width: $meterValueCircleSize
+  height: $meterValueCircleSize
+  margin: $meterValueCircleMargin
+  background-color: $meterValueCircleColor
+  z-index: 2
+  font-size: $meterValueTextSize
+  line-height: $meterValueCircleSize
+  openSansBold()
+  circle()
+
+.meter-svg
+  position: absolute
+  top: 0px
+  left: 0px
+  background: $pieChartFill
+  z-index: 1
+  turn(-90deg)
+  circle()
+
+.meter-progress
+  stroke-width: 32
+  stroke-dasharray: 0 100
+  fill: $pieChartFill
+
+.chart-title
+  color: $textChartTitleColor
+  font-size: $chartTitleTextSize
+  line-height: $chartTitleLineHeight
+  text-align: center
+  openSansBold()
+
+.chart-title-shadow
+  background-color: transparent
+  position: absolute
+  left: 0px
+  bottom: 0px
+  width: $chartTitleShadowWidth
+  height: $chartTitleShadowHeight
+  z-index: 3 /* Place the shadow below container-chart-title div */
+  shadowSmall()
+
+.chart-vertical-divider
+  background-color: $chartVerticalDividerColor
+  position: absolute
+  top: $chartVerticalDividerPositionTop
+  left: $chartVerticalDividerPositionLeft
+  width: $chartVerticalDividerWidth
+  height: $chartVerticalDividerHeight
+  z-index: 1
+
+// Column widths for tables
+.mp-table-3-col
+  .csm, .company, .count
+    width: 160px
+  .count
+    width: 100px
+
+.mp-table-2-col
+  .mp-table-row-item, .mp-table-header-item
+    width: 210px
+
+.mp-table
+  border-collapse: separate
+
+.mp-table-header-item, .mp-table-large-header-item
+  background: #F5F6F8
+  font-size: 0.500rem // TODO: variable
+  text-align: left
+  openSansBold()
+
+.mp-table-header-item
+  height: 19px // TODO: variable
+  line-height: 19px // TODO: variable
+
+.mp-table-large-header-item
+  height: 29px
+  line-height: 29px
+
+.mp-table-row-item, .mp-table-large-row-item
+  openSansSemibold()
+
+.mp-table-row-item
+  height: 29px // TODO: variable
+  font-size: 0.625rem
+  line-height: 29px // TODO: variable
+
+.mp-table-large-row-item
+  height: 35px // 55 is too large for this report
+  line-height: 35px
+  font-size: 0.750rem
+
+.mp-table-header-item, .mp-table-large-header-item, .mp-table-row-item, .mp-table-large-row-item
+  padding: 0 10px 0 9px
+  color: $mpPrimaryBlue
+  border-right: 1px solid $mpMidBlue
+  border-bottom: 1px solid $mpMidBlue
+
+// potentially bad
+.mp-table-header th:last-of-type
+  border-right: 0
+
+.mp-table-row td:last-of-type
+  border-right: 0
+
+tr:last-of-type .mp-table-row-item, tr:last-of-type .mp-table-large-row-item
+  border-bottom: 0
+
+// Need to round bottom corners of table, so background colors should be
+// applied to each td element
+tr:last-child
+  td:first-child
+    borderBottomLeftRadius(4px) // TODO: variable
+  td:last-child
+    borderBottomRightRadius(4px) // TODO: variable
+
+tr:nth-child(even)
+  td
+    background: white // TODO: variable
+
+tr:nth-child(odd)
+  td
+    background: #F5F6F8 // TODO: variable
+
+.mp-iv-table li:nth-of-type(odd)
+  background-color: $tableRowOddColor
+
+.mp-iv-table li:nth-of-type(even)
+  background-color: $tableRowEvenColor
+
+.mp-iv-table li:last-of-type
+  borderBottomRadius($borderRadiusSmall)
+
+.mp-iv-table-row
+  padding: $tableRowPaddingTB $tableRowPaddingLR
+
+.mp-iv-table-row h2
+  font-size: $tableRowTextSize
+
+.mp-iv-table-header
+  padding: $tableHeaderPaddingTB $tableHeaderPaddingLR
+  background-color: $tableHeaderColor
+
+.mp-iv-table-header-title
+  font-size: $tableHeaderTextSize
+
+.pie-chart
+  width: $pieChartSize
+  height: $pieChartSize
+  display: inline-block
+  vertical-align: middle
+  circle()
+  shadowSmall()
+
+.pie-chart-svg
+  background: $pieChartFill
+  turn(-90deg)
+  circle()
+
+.pie-chart-circle
+  stroke-width: 32
+  fill: $pieChartFill
+
+.pie-chart-legend-circle
+  display: inline-block
+  width: $pieChartLegendSize
+  height: $pieChartLegendSize
+  vertical-align: middle
+  circle()
+
+.pie-chart-legend-item
+  margin-bottom: $pieChartLegendItemMarginBottom
+  &:last-of-type
+    margin-bottom: 0px
+
+.pie-chart-legend-text
+  display: inline-block
+  margin-left: $pieChartLegendTextMarginLeft
+  font-size: $pieChartLegendTextSize
+  vertical-align: middle
+
+.y-axis
+  font-size: $yAxisTextSize
+  padding-top: $yAxisPaddingTop
+
+.y-value
+  line-height: $yAxisValueLineHeight
+  margin-top: $yAxisValueMarginTop
+
+.x-axis
+  font-size: $xAxisTextSize
+
+.x-value
+  display: inline-block
+  text-align: center
+  vertical-align: middle
+  h4
+    line-height: $axisSize
+    overflow: hidden
+    text-overflow: ellipsis
+
+.chart-horizontal-divider
+  margin-top: $chartHorizontalDividerMarginTop
+  border-top: $chartHorizontalDividerHeight dashed $chartHorizontalDividerDashedColor
+.container-bar-chart
+  // Target the top horizontal divider div, class is included for specificity
+  div.chart-horizontal-divider:nth-of-type(4)
+    border-top: $chartHorizontalDividerHeight solid $chartHorizontalDividerSolidColor
+.container-line-chart
+  // Target the top horizontal divider div, class is included for specificity
+  div.chart-horizontal-divider:nth-of-type(3)
+    border-top: $chartHorizontalDividerHeight solid $chartHorizontalDividerSolidColor
+
+.bars
+  position: absolute
+  left: $containerBarsPositionLeft
+  bottom: $containerBarsPositionBottom
+  width: calc(100% - 36px) // $$RG$$ TODO: get variables working in calc
+
+.bar
+  vertical-align: bottom
+  display: inline-block
+  width: $barWidth
+
+.chart-dash-big, .chart-dash
+  display: inline-block
+  background-color: $chartDashBackgroundColor
+  margin-right: $chartDashMarginRight
+  width: $chartDashWidth
+  vertical-align: top
+
+.chart-dash-big
+  height: $chartDashBigHeight
+
+.chart-dash
+  height: $chartDashHeight
+
+.line-chart-point
+  display: inline-block
+  background-color: $lineChartPointColor
+  margin-left: $lineChartPointMarginLeft
+  width: $lineChartPointSize
+  height: $lineChartPointSize
+  border: $lineChartPointBorderSize solid $lineChartPointBorderColor
+  circle()
+
+$barHeights = (155px 150px 140px 110px 80px 70px 50px 20px)
+for i in 0..7
+  .bars .container-bar:nth-of-type({i+1})
+    .bar
+      background-color: $chartColors[i]
+      height: $barHeights[i]
+
+.line-chart-day-of-month
+.line-chart-day-of-new-month
+  display: inline-block
+  text-align: center
+
+.line-chart-day-of-month
+  width: $lineChartDayOfMonthWidth
+  margin-right: $lineChartDayOfMonthMarginRight
+
+.line-chart-day-of-new-month
+  width: $lineChartDayOfNewMonthWidth
+  margin-left: $lineChartDayOfNewMonthMarginLeft
+  margin-right: $lineChartDayOfNewMonthMarginRight
+
+/* IDs */
+
+#column-1
+  width: 50%
+
+#column-2
+  width: 50%
+
+#app-load
+  margin: 0 $containerMargin $containerMargin
+
+#button-range-picker
+  background-color: $buttonEnabledColor
+
+#unique-orgs
+  position: absolute
+  top: $containerPadding
+  left: $containerPadding
+
+#unique-orgs-mau-progress
+  stroke: $strokeColor
+
+#unique-orgs-meter-value
+  color: $strokeColor
+
+#multi-app-orgs-progress
+  stroke: $strokeColor
+
+#multi-app-orgs-meter-value
+  color: $strokeColor
+
+#new-orgs
+  position: absolute
+  top: $containerPadding
+  right: $containerPadding
+
+#new-orgs-meter-value
+  color: $strokeColor
+
+#new-orgs-progress
+  stroke: $strokeColor
+
+#company-logo
+  position: absolute
+  top: 0px
+  left: 0px
+  height: $companyLogoHeight
+
+#report-title
+  font-size: $reportTitleTextSize
+  openSansBold()
+
+#range-picker-button-text
+  margin-right: $buttonRangePickerMargin
+
+#meters
+  position: relative
+  text-align: center
+
+for i in 0..5
+  #marketing-channel-{i+1}-share
+    stroke: $chartColors[i]
+
+  #marketing-channel-{i+1}-legend-item
+    .pie-chart-legend-circle
+      background-color: $chartColors[i]
+    .pie-chart-legend-text
+      color: $chartColors[i]
+
+#bar-chart-x-axis
+  margin-left: $barChartXAxisMarginLeft
+  margin-right: $barChartXAxisMarginRight
+  li.x-value
+    width: $barChartXAxisTextBoxWidth
+  // h4
+  //   width: $barChartXAxisTextBoxWidth
+
+#line-chart-x-axis
+  margin-left: $lineChartXAxisMarginLeft
+  h4:first-of-type
+    margin-left: $lineChartDayOfNewMonthFirstMarginLeft
+  h4:last-of-type
+    margin-right: 0px
+  li.x-value:first-of-type
+    .chart-dash-big
+      margin-left: $lineChartDashFirstMarginLeft
+  li.x-value:last-of-type
+    .chart-dash
+      margin-right: 0px
+  // .container-line-chart-points
+  //   div.line-chart-point:first-of-type
+  //     margin-left: $lineChartPointFirstMarginLeft
+
+#bar-mp-chart, #line-mp-chart, #pie-mp-chart
+  height: $chartHeight
+  background-color: $axisColor
+  borderBottomRadiusSmall()
+
+// Workaround for line charts to set chart height
+#line-mp-chart .graph
+  height: $chartHeight
+
+// Remove inner line chart border
+#line-mp-chart svg > path
+  display: none
+
+// Remove outer line chart border
+#line-mp-chart svg > rect:nth-of-type(2)
+  stroke: $axisColor
+
+// Set border radius for line chart y-axis to 0
+#line-mp-chart svg > rect:nth-of-type(3)
+  rx: 0
+  ry: 0
+
+// Adapted from container-pie-chart
+#pie-mp-chart
+  background-color: $containerChartContentBackgroundColor
+  borderBottomRadiusSmall()
+
+#loading-symbol
+  position: fixed
+  top: $loadingSymbolTop
+  left: $loadingSymbolLeft
+  margin-top: $loadingSymbolMarginTop
+  margin-left: $loadingSymbolMarginLeft
+  width: $loadingSymbolWidth
+  height: $loadingSymbolHeight
+  z-index: 5
+
+#loading-mp-circle-1
+  opacity: 0
+  transformOrigin(7.58823529px, 7.58823529px)
+  animation(pulse, ease-in-out, both, 1.2s, 0s, infinite)
+
+#loading-mp-circle-2
+  opacity: 0
+  transformOrigin(34.9764706px, 7.65882353px)
+  animation(pulse, ease-in-out, both, 1.2s, 0.3s, infinite)
+
+#loading-mp-circle-3
+  opacity: 0
+  transformOrigin(57.5647059px, 7.65882353px)
+  animation(pulse, ease-in-out, both, 1.2s, 0.6s, infinite)
+
+/* Key Frames */
+@keyframes pulse
+  10%
+    scaleEl(1.2)
+    opacity: 1
+  90%
+    scaleEl(0.8)
+    opacity: 0

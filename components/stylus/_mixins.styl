@@ -1,0 +1,77 @@
+@import _variables
+
+vendor($prop, $args)
+  -webkit-{$prop} $args
+  -moz-{$prop} $args
+  -ms-{$prop} $args
+  -o-{$prop} $args
+  {$prop} $args
+
+helv()
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif
+
+openSans()
+  font-family: 'Open Sans', sans-serif
+  font-weight: 400
+
+openSansSemibold()
+  font-family: 'Open Sans', sans-serif
+  font-weight: 600
+
+openSansBold()
+  font-family: 'Open Sans', sans-serif
+  font-weight: 700
+
+openSansExtraBold()
+  font-family: 'Open Sans', sans-serif
+  font-weight: 800
+
+circle()
+  borderRadius(50%)
+
+borderRadius($size)
+  border-radius: $size
+
+borderBottomRadius($size)
+  border-radius: 0px 0px $size $size
+
+borderRadiusLarge()
+  borderRadius($borderRadiusLarge)
+
+borderRadiusSmall()
+  borderRadius($borderRadiusSmall)
+
+borderBottomRadiusSmall()
+  borderBottomRadius($borderRadiusSmall)
+
+flipVertically()
+  transform(scaleY(-1))
+  filter: FlipV
+  -ms-filter: "FlipV"
+
+scaleEl($dx, $dy = $dx)
+  vendor('transform', scale($dx, $dy))
+
+shadow($y, $blur)
+  box-shadow: 0px $y $blur 0px rgba(0,0,0,0.20);
+
+shadowLarge()
+  shadow(1px, 4px)
+
+shadowSmall()
+  shadow(1px, 2px)
+
+turn($deg)
+  vendor('transform', rotate($deg))
+
+transform($param)
+  vendor('transform', $param)
+
+transformOrigin($x, $y)
+  vendor('transform-origin', $x $y)
+
+transition($attr, $dur, $timingFn, $delay)
+  vendor('transition', $attr $dur $timingFn $delay)
+
+animation($name, $timingFn, $fillMode, $duration, $delay = 0s, $iterCount = 1)
+  vendor('animation', $name $timingFn $duration $delay $iterCount $fillMode)

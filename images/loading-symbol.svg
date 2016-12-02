@@ -1,0 +1,26 @@
+<svg id="loading-symbol" width="104px" height="104px" viewBox="0 0 104 104" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-shadow">
+      <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+      <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+      <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.14 0" in="shadowBlurOuter1" type="matrix" result="shadowMatrixOuter1"></feColorMatrix>
+      <feMerge>
+        <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+        <feMergeNode in="SourceGraphic"></feMergeNode>
+      </feMerge>
+    </filter>
+  </defs>
+  <g id="loading-group" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="loading-screen-group" transform="translate(-440.000000, -462.000000)">
+      <g id="loading-symbol-group" transform="translate(440.000000, 462.000000)">
+        <circle id="loading-circle" fill="#FFFFFF" filter="url(#filter-shadow)" cx="50" cy="50" r="50"></circle>
+        <g id="loading-mp-circles-group" transform="translate(20.000000, 42.000000)" fill="#53A2EB">
+          <circle id="loading-mp-circle-1" cx="7.58823529" cy="7.58823529" r="7.58823529"></circle>
+          <circle id="loading-mp-circle-2" cx="34.9764706" cy="7.65882353" r="5.36470588"></circle>
+          <circle id="loading-mp-circle-3" cx="57.5647059" cy="7.65882353" r="2.43529412"></circle>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
+  

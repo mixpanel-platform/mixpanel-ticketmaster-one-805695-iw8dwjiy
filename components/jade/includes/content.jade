@@ -1,0 +1,27 @@
+include mixins.jade
+div.container-report.clearfix
+  div#pickers.container-section
+    div.container-logo-title
+      img#company-logo
+      h1#report-title SAAS DASHBOARD
+    div#-select
+      div#date-picker
+   div#meters.container-section
+     +meter('UNIQUE ORGS', '', true)
+     +meter('MULTI APP ORGS', '', false)
+     +meter('NEW ORGS', '', true)
+  div#columns.container-columns.clearfix
+    div#column.column.charts.pull-left
+      div#at-risk-users.container-section
+        div.container-chart.mp-table-container.mp-at-risk-users
+          +chartHeader('RISK ACCOUNTS')
+          table.mp-table.mp-table-risk
+    div#column.column.charts.pull-right
+      div#power-users.container-section
+        div.container-chart.mp-table-container.mp-power-users
+          +chartHeader('POWER USERS')
+          table.mp-table.mp-table-usage
+  div#app-loads.container-section
+    div#line-chart.container-chart
+      +chartHeader('App Loads')
+      div#line-mp-chart
