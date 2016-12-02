@@ -2,11 +2,6 @@
 Promise = require('es6-promise').Promise
 animations = require('create-keyframe-animation')
 
-# $$RG$$ TODO: Remove project key and secret from the project
-# projectKey = '56c995a8fa5320df5a8436253391e412'
-# projectSecret = '66a8548300e97c30214b4ebdacc3925b'
-# MP.api.setCredentials projectKey, projectSecret
-
 globals =
     fromMoment: moment()
     toMoment: moment()
@@ -461,4 +456,5 @@ initAppPicker()
 appPickerHandler()
 initAppTypePicker()
 appTypePickerHandler()
+debugger
 getResults(globals.fromMoment, globals.toMoment)
