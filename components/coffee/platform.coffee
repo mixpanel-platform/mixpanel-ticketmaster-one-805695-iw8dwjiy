@@ -452,5 +452,4 @@ initAppPicker()
 appPickerHandler()
 initAppTypePicker()
 appTypePickerHandler()
-debugger
 getResults(globals.fromMoment, globals.toMoment)
