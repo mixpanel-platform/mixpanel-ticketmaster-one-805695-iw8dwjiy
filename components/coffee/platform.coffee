@@ -135,14 +135,14 @@ hideLoadingScreen = ->
 addRiskTableHeader = () ->
     $table = $('.mp-table-risk')
     $header = null
-    $header = $('<tr class="mp-table-header mp-table-2-col"><th class="mp-table-header-item name">BUCKET</th><th class="mp-table-header-item count">COUNT</th></tr>')
+    $header = $('<tr class="mp-table-header mp-table-2-col"><th class="mp-table-header-item name">LAST USE DATE RANGE</th><th class="mp-table-header-item count">COUNT</th></tr>')
     $table.html $header
     return
 
 addUsageTableHeader = () ->
     $table = $('.mp-table-usage')
     $header = null
-    $header = $('<tr class="mp-table-header mp-table-3-col"><th class="mp-table-header-item csm">CSM</th><th class="mp-table-header-item company">COMPANY</th><th class="mp-table-header-item count">APP COUNT</th></tr>')
+    $header = $('<tr class="mp-table-header mp-table-3-col"><th class="mp-table-header-item csm">CSM</th><th class="mp-table-header-item company">CLIENT</th><th class="mp-table-header-item count">APP COUNT</th></tr>')
     $table.html $header
     return
 
@@ -248,7 +248,7 @@ getUsage = (from, to) ->
     Promise.resolve(MP.api.jql script, params)
 
 getRisk = () =>
-    script = "function main() {return People().filter(user => user.properties.salesforceOrgId).groupBy(['properties.salesforceOrgId'], (accs, items) => {var res; _.each(items, item => {var daysAgo = (new Date().getTime() - new Date(item.properties.$last_login).getTime()) / 86400000;daysAgo = daysAgo > 90? 90 : daysAgo;if (!res || res > daysAgo ){ res = daysAgo }});_.each(accs, acc => {if (!res || res > acc){res = acc}});return res}).map(item => ({time: item.value})).groupBy([mixpanel.numeric_bucket('time', {offset: 0, bucket_size:30})], mixpanel.reducer.count()).filter(item => item.key[0] >= 0)}"
+    script = "function main() {return People().filter(user => user.properties.salesforceOrgId).groupBy(['properties.salesforceOrgId'], (accs, items) => {var res; _.each(items, item => {var daysAgo = (new Date().getTime() - new Date(item.properties.$last_login).getTime()) / 86400000;daysAgo = daysAgo > 90? 90 : daysAgo;if (!res || res > daysAgo ){ res = daysAgo }});_.each(accs, acc => {if (!res || res > acc){res = acc}});return res}).map(item => ({time: item.value})).groupBy([mixpanel.numeric_bucket('time', {offset: 0, bucket_size:30})], mixpanel.reducer.count()).filter(item => item.key[0] >= 0).reduce((accs, items) =>{ var res = {}; _.each(items, item => res[item.key] = item.value); _.each(accs, acc => res = acc); return res}).map(item => {var res  = {};_.each(item, (val, bucket) => {res[buckets[bucket]] = val});return res});};var buckets = { '0': '0-30', '30' : '31-60', '60' : '61-90', '90' : '90+' }}"
     Promise.resolve(MP.api.jql script)
 
 getAppLoadTrends = (from, to, type, app) ->
