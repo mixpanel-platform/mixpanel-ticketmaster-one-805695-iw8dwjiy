@@ -1105,7 +1105,7 @@
 	};
 
 	processRiskData = function(results) {
-	  return results;
+	  return results[0];
 	};
 
 	processAppLoadData = function(results) {
@@ -1149,12 +1149,10 @@
 	};
 
 	showRiskTable = function(buckets) {
-	  var bucket, i, len;
 	  addRiskTableHeader();
-	  for (i = 0, len = buckets.length; i < len; i++) {
-	    bucket = buckets[i];
-	    addRiskRow(bucket.key[0], bucket.value);
-	  }
+	  _.each(buckets, function(val, bucket) {
+	    return addRiskRow(bucket, val);
+	  });
 	};
 
 	showUsageTable = function(users) {
@@ -1273,6 +1271,7 @@
 	    appLoads = processAppLoadData(appLoadsResults);
 	    hideLoadingScreen();
 	    setReportTitle();
+	    debugger;
 	    showProgress('unique-orgs', mau.condensedValue(), 0, Math.min(Math.floor(mau / mauGoal * 100, 100)));
 	    showProgress('multi-app-orgs', appOrgs.condensedValue(), 250, Math.min(Math.floor(appOrgs / appOrgsGoal * 100, 100)));
 	    showProgress('new-orgs', newOrgs.condensedValue(), 500, Math.min(Math.floor(newOrgs / newOrgsGoal * 100, 100)));
