@@ -1271,7 +1271,6 @@
 	    appLoads = processAppLoadData(appLoadsResults);
 	    hideLoadingScreen();
 	    setReportTitle();
-	    debugger;
 	    showProgress('unique-orgs', mau.condensedValue(), 0, Math.min(Math.floor(mau / mauGoal * 100, 100)));
 	    showProgress('multi-app-orgs', appOrgs.condensedValue(), 250, Math.min(Math.floor(appOrgs / appOrgsGoal * 100, 100)));
 	    showProgress('new-orgs', newOrgs.condensedValue(), 500, Math.min(Math.floor(newOrgs / newOrgsGoal * 100, 100)));
